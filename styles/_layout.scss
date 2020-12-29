@@ -127,6 +127,12 @@ $max-para-width: 50vw;
   grid-template-rows: auto;
 }
 
+@mixin book-of-the-month-grid {
+  display: grid;
+  grid-template-columns: 0.175fr 1fr;
+  grid-template-rows: repeat(3, auto);
+}
+
 // Contacts page grids
 @mixin contacts-main-mobile-grid {
   display: grid;
