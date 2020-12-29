@@ -1,0 +1,39 @@
+@font-face {
+    font-family: 'Parisian';
+    src: url('ParisianNormal.eot');
+    src: url('ParisianNormal.eot?#iefix') format('embedded-opentype'),
+        url('ParisianNormal.woff2') format('woff2'),
+        url('ParisianNormal.woff') format('woff'),
+        url('ParisianNormal.ttf') format('truetype'),
+        url('ParisianNormal.svg#ParisianNormal') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Parisian';
+    src: url('ParisianNormal_1.eot');
+    src: url('ParisianNormal_1.eot?#iefix') format('embedded-opentype'),
+        url('ParisianNormal_1.woff2') format('woff2'),
+        url('ParisianNormal_1.woff') format('woff'),
+        url('ParisianNormal_1.ttf') format('truetype'),
+        url('ParisianNormal_1.svg#ParisianNormal') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Parisian';
+    src: url('ParisianNormal_2.eot');
+    src: url('ParisianNormal_2.eot?#iefix') format('embedded-opentype'),
+        url('ParisianNormal_2.woff2') format('woff2'),
+        url('ParisianNormal_2.woff') format('woff'),
+        url('ParisianNormal_2.ttf') format('truetype'),
+        url('ParisianNormal_2.svg#ParisianNormal') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

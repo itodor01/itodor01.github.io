@@ -1,0 +1,22 @@
+/* Colors */
+$brand-main-color: #236841;
+$brand-background-color-1: lighten($brand-main-color, 20%);
+$brand-background-color-2: rgba(0,0,0,0.6);
+$base-font-color: #292f38;
+$base-border-color: lighten($base-font-color, 60%);
+
+$theme1-color-1: #05386B;
+$theme1-font-1-color: #379683;
+$theme1-font-2-color: #EDF5E1;
+$theme1-back-color: #5CDB95;
+$theme1-front-color: #8EE4AF;
+
+$theme2-main-color: #17252A;
+$theme2-main-color-rgba: rgba(23, 37, 42, 0.7);
+$theme2-font-1-color: #FEFFFF;
+$theme2-font-2-color: #DEF2F1;
+$theme2-back-color: #3aafa9;
+$theme2-back-color-rgba: rgba(58, 175, 169, 0.8);
+$theme2-front-color: #2B7A78;
+
+$rating-color: #FF9529;

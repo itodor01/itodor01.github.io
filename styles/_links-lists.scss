@@ -1,0 +1,8 @@
+/* Lists */
+@mixin no-underline-link {
+  text-decoration: none;
+}
+
+@mixin no-bullets-list {
+  list-style: none;
+}

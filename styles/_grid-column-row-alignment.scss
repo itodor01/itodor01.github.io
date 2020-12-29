@@ -1,0 +1,11 @@
+/* Grid column align */
+@mixin justify-self($alignment) {
+  -ms-grid-column-align: $alignment;
+  justify-self: $alignment;
+}
+/* Grid row align */
+@mixin align-self($position) {
+  -ms-flex-item-align: $position;
+  -ms-grid-row-align: $position;
+  align-self: $position;
+}

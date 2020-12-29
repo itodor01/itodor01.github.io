@@ -1,0 +1,14 @@
+/* Transform for transition */
+@mixin transition-for-transform($transform-property) {
+  -webkit-transition: "-webkit-" + $transform-property;
+  transition: "-webkit-" + $transform-property;
+  -o-transition: $transform-property;
+  transition: $transform-property;
+  transition: $transform-property, "-webkit-" + $transform-property;
+}
+/* Transition */
+@mixin transition($transition-property) {
+  -webkit-transition: $transition-property;
+  -o-transition: $transition-property;
+  transition: $transition-property;
+}

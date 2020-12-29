@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../../styles/normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/styles.css">
+    <title>Emblem Delivery</title>
+</head>
+<body>
+    <div id="page-container">
+        <header id="top">
+            <div id="top-links">
+                <ul>
+                    <li>
+                        <a href="#">Login</a>
+                        <a href="#">Accessibility</a>
+                        <a href="../contact/contact_us.html">Contact us</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="logo-container">
+                <a href="../../index.html"><img src="../../images/logo/emblem_logo_64.png" alt="logo"></a>
+                <span class="logo-text">Rare, Collectible Books</span>
+            </div>
+            <h1 id="logo">Emblem</h1>
+            <div class="hamburger-menu" tabindex="0">
+                <a id="hamburger-button" href="#" tabindex="1">&#9776;</a>
+                <div class="hamburger-content">
+                    <ul>
+                        <li><a href="#mobile-nav" tabindex="0">Menu</a></li>
+                        <li><a href="../contact/contact_us.html" tabindex="0">Contact us</a></li>
+                        <li><a href="#" tabindex="0">Accessibility</a></li>
+                        <li><a href="#" tabindex="0">Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <nav id="nav">
+            <ul>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../books/books.html">Books</a></li>
+                <li><a href="../delivery/delivery.html">Delivery</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Investment</a></li>
+            </ul>
+        </nav>
+        <main id="delivery-main">
+            <section id="delivery-intro">
+                <article>
+                    <h2>Delivery Information</h2>
+                    <div class="text-container">
+                        <p>All deliveries are included in the price of the book for books over £500. Otherwise the following rates apply:</p>
+                    </div>
+                </article>
+            </section>
+            <section id="delivery-rates">
+                <!-- There is a more complex way of making this table accessible using the id and headers attributes, but I find this solution more elegant
+                  and easier to read I believe it complies with accessibility standards as specified at: https://www.w3.org/WAI/tutorials/tables/irregular/
+                  accessed: 26/12/2020 -->
+                <table id="delivery-table-desktop" class="delivery-table" tabindex="0">
+                    <caption>Delivery rates</caption>
+                    <col>
+                    <colgroup span="2"></colgroup>
+                    <colgroup span="2"></colgroup>
+                    <colgroup span="2"></colgroup>
+                    <tr>
+                        <td rowspan="2"></td>
+                        <th colspan="2" scope="colgroup">Up to 1kg</th>
+                        <th colspan="2" scope="colgroup">Over 1kg</th>
+                        <th colspan="2" scope="colgroup">Over 3kg</th>
+                    </tr>
+                    <tr>
+                        <th scope="col">Premium</th>
+                        <th scope="col">Standard</th>
+                        <th scope="col">Premium</th>
+                        <th scope="col">Standard</th>
+                        <th scope="col">Premium</th>
+                        <th scope="col">Standard</th>
+                    </tr>
+                    <tr>
+                        <th scope="row">UK</th>
+                        <td>&#163;5.99</td>
+                        <td>&#163;9.99</td>
+                        <td>&#163;11.59</td>
+                        <td>&#163;16.59</td>
+                        <td>&#163;33.99</td>
+                        <td>&#163;43.99</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Europe</th>
+                        <td>&#163;12.00</td>
+                        <td>&#163;16.00</td>
+                        <td>&#163;25.00</td>
+                        <td>&#163;31.00</td>
+                        <td>&#163;70.00</td>
+                        <td>&#163;80.00</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">USA/Canada</th>
+                        <td>&#163;14.99</td>
+                        <td>&#163;22.99</td>
+                        <td>&#163;27.00</td>
+                        <td>&#163;32.00</td>
+                        <td>&#163;68.00</td>
+                        <td>&#163;78.00</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Rest of the World</th>
+                        <td>&#163;20.00</td>
+                        <td>&#163;24.00</td>
+                        <td>&#163;25.00</td>
+                        <td>&#163;30.00</td>
+                        <td>&#163;80.00</td>
+                        <td>&#163;91.00</td>
+                    </tr>
+                </table>
+                <!-- This mobile version of the delivery rates table is not completely responsive
+                (the table breaks up the page for really small screens). I found a way to make the table
+                 completely responsive at:https://css-tricks.com/responsive-data-tables/ accessed: 26/12/2020,
+                 could not implement it due to the different levels of headings but it is possible. I believe this version
+                 of the table complies with the accessibility standards for screen readers as described at:
+                 https://www.w3.org/WAI/tutorials/tables/multi-level/#split-up-multi-level-tables accessed: 26/12/2020 -->
+                <table id="delivery-table-mobile" class="delivery-table" tabindex="0">
+                    <caption>Delivery rates</caption>
+                    <tr>
+                        <th id="blank" rowspan="2">&nbsp;</th>
+                        <th id="group1" headers="blank" colspan="2">Up to 1kg</th>
+                    </tr>
+                    <tr>
+                        <th id="col1" headers="blank">Premium</th>
+                        <th id="col2" headers="blank">Standard</th>
+                    </tr>
+                    <tr>
+                        <th id="uk1" headers="blank">UK</th>
+                        <td headers="group1 col1 uk1">&#163;5.99</td>
+                        <td headers="group1 col2 uk1">&#163;9.99</td>
+                    </tr>
+                    <tr>
+                        <th id="eu1" headers="blank">Europe</th>
+                        <td headers="group1 col1 eu1">&#163;12.00</td>
+                        <td headers="group1 col2 eu1">&#163;16.00</td>
+                    </tr>
+                    <tr>
+                        <th id="na1" headers="blank">USA/Canada</th>
+                        <td headers="group1 col1 na1">&#163;14.99</td>
+                        <td headers="group1 col2 na1">&#163;22.99</td>
+                    </tr>
+                    <tr>
+                        <th id="rw1" headers="blank">Rest of the World</th>
+                        <td headers="group1 col1 rw1">&#163;20.00</td>
+                        <td headers="group1 col2 rw1">&#163;24.00</td>
+                    </tr>
+                    <tr>
+                        <th rowspan="2">&nbsp;</th>
+                        <th id="group2" headers="blank" colspan="2">Over 1kg</th>
+                    </tr>
+                    <tr>
+                        <th id="col3" headers="blank">Premium</th>
+                        <th id="col4" headers="blank">Standard</th>
+                    </tr>
+                    <tr>
+                        <th id="uk2" headers="blank">UK</th>
+                        <td headers="group2 col3 uk2">&#163;11.59</td>
+                        <td headers="group2 col4 uk2">&#163;16.59</td>
+                    </tr>
+                    <tr>
+                        <th id="eu2" headers="blank">Europe</th>
+                        <td headers="group2 col3 eu2">&#163;25.00</td>
+                        <td headers="group2 col4 eu2">&#163;31.00</td>
+                    </tr>
+                    <tr>
+                        <th id="na2" headers="blank">USA/Canada</th>
+                        <td headers="group2 col3 na2">&#163;27.00</td>
+                        <td headers="group2 col4 na2">&#163;32.00</td>
+                    </tr>
+                    <tr>
+                        <th id="rw2" headers="blank">Rest of the World</th>
+                        <td headers="group2 col3 rw2">&#163;25.00</td>
+                        <td headers="group2 col4 rw2">&#163;30.00</td>
+                    </tr>
+                    <tr>
+                        <th rowspan="2">&nbsp;</th>
+                        <th id="group3" headers="blank" colspan="2">Over 3kg</th>
+                    </tr>
+                    <tr>
+                        <th id="col5" headers="blank">Premium</th>
+                        <th id="col6" headers="blank">Standard</th>
+                    </tr>
+                    <tr>
+                        <th id="uk3" headers="blank">UK</th>
+                        <td headers="group3 col5 uk3">&#163;33.99</td>
+                        <td headers="group3 col6 uk3">&#163;43.99</td>
+                    </tr>
+                    <tr>
+                        <th id="eu3" headers="blank">Europe</th>
+                        <td headers="group3 col5 eu3">&#163;70.00</td>
+                        <td headers="group3 col6 eu3">&#163;80.00</td>
+                    </tr>
+                    <tr>
+                        <th id="na3" headers="blank">USA/Canada</th>
+                        <td headers="group3 col5 na3">&#163;68.00</td>
+                        <td headers="group3 col6 na3">&#163;78.00</td>
+                    </tr>
+                    <tr>
+                        <th id="rw3" headers="blank">Rest of the World</th>
+                        <td headers="group3 col5 rw3">&#163;80.00</td>
+                        <td headers="group3 col6 rw3">&#163;91.00</td>
+                    </tr>
+                </table>
+            </section>
+            <section id="delivery-info">
+                <div class="text-container">
+                    <p>
+                        Deliveries are undertaken where appropriate by specialist fragile and valuable goods handlers.
+                        All goods are sent first-class to both the UK and abroad.
+                    </p>
+                    <p>
+                        Estimated delivery times are as follows:
+                    </p>
+                    <ul>
+                        <li>UK: 1 to2 days </li>
+                        <li>Europe: 2 to 3 days</li>
+                        <li>USA/Canada: 3 to 5 days</li>
+                        <li>Rest of the World: 5-14 days</li>
+                    </ul>
+                    <p>
+                        However, delivery times may differ if repair to books is requested before dispatch.
+                    </p>
+                </div>
+            </section>
+        </main>
+        <nav id="mobile-nav">
+            <ul>
+                <li><a href="../../index.html"><span class="arrow">&raquo;</span>Home</a></li>
+                <li><a href="../books/books.html"><span class="arrow">&raquo;</span>Books</a></li>
+                <li><a href="../delivery/delivery.html"><span class="arrow">&raquo;</span>Delivery</a></li>
+                <li><a href="#"><span class="arrow">&raquo;</span>About us</a></li>
+                <li><a href="#"><span class="arrow">&raquo;</span>Books as an Investment</a></li>
+                <li class="top"><a href="#top"><span class="arrow">&raquo;</span>Back to top of page</a></li>
+            </ul>
+        </nav>
+        <footer id="foot">
+            <ul>
+                <li><a href="#">Privacy</a></li>
+                <li><a href="#">Terms and Conditions</a></li>
+                <li><a href="#">Returns</a></li>
+            </ul>
+        </footer>
+    </div>
+</body>
+</html>

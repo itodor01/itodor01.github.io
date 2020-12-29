@@ -1,0 +1,886 @@
+@import "colors";
+@import "fonts";
+@import "grid-column-row-alignment";
+@import "layout";
+@import "links-lists";
+@import "transform";
+@import "transition";
+@import "accessibility";
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+html {
+    color: $base-font-color;
+    font-family: $base-font;
+    font-size: $base-font-size;
+    letter-spacing: $base-letter-spacing;
+    line-height: $base-line-height;
+}
+
+body, html {
+    height: 100%;
+    margin: $no-margin;
+    background-color: $theme2-back-color;
+    background-image: url("../images/background/pexels-bilakis-4069088.jpg"),
+                      url("../images/background/shutterstock_712481395.jpg"),
+                      url("../images/background/shutterstock_1126613249.jpg"),
+                      url("../images/background/shutterstock_753694939.jpg"),
+                      url("../images/background/shutterstock_356218724.jpg"),
+                      url("../images/background/shutterstock_221428027.jpg"),
+                      url("../images/background/pexels-suzy-hazelwood-1989704.jpg");
+    background-position: $centered,
+                         top 100vh right 0,
+                         top 200vh right 0,
+                         top 300vh right 0,
+                         top 400vh right 0,
+                         top 500vh right 50%,
+                         top 600vh right 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+header {
+    //background-color: $brand-background-color-1;
+    background-color: $brand-background-color-2;
+    padding: ($large-padding * 2) $small-padding $large-padding;
+    @include header-mobile-grid;
+}
+main {
+    margin: $no-margin $small-margin;
+}
+h1 {
+    font-size: $font-size-4;
+    margin: $no-margin;
+    @include justify-self(start);
+    @include align-self($centered);
+    display: none;
+    color: $theme1-font-2-color;
+    @include text-shadow(0 0 4px $base-font-color);
+}
+
+h2, h3, h4 {
+    color: $theme1-font-2-color;
+    @include text-shadow(0 0 4px $base-font-color);
+}
+h2 {
+    font-size: $font-size-3;
+    //background: mix($brand-main-color, $theme1-font-2-color, 10%);
+    background-color: mix($theme1-font-2-color, $brand-main-color, 15%);
+    border: $base-border-width $base-border-style $base-border-color;
+    border-radius: $base-border-radius;
+    padding: $no-padding $small-padding $no-padding $small-padding;
+    display: inline-block;
+}
+h3 {
+    font-size: $font-size-2;
+}
+h4 {
+    font-size: $font-size-1;
+}
+
+a {
+    @include no-underline-link;
+    color: $theme1-back-color;
+    &:hover {
+        text-decoration: underline;
+    }
+    &:focus {
+        @include focus;
+    }
+}
+p {
+    color: $theme1-font-2-color;
+}
+
+#page-container {
+    @include page-container-mobile-grid;
+}
+
+.text-container {
+    background-color: $brand-background-color-2;
+    padding: $large-padding;
+    border-radius: $base-border-radius;
+    &:focus {
+        @include focus;
+    }
+    .img-container + p {
+        margin: $no-margin;
+    }
+    ul {
+        display: inline-block;
+        color: $theme1-font-2-color;
+        li {
+            padding: half($small-padding) $no-padding;
+        }
+    }
+}
+
+/* Header */
+#top {
+    grid-area: top;
+}
+
+/* Skip links */
+.skip-link {
+    position: absolute;
+    left: -10000px;
+    &:focus {
+        left: auto;
+        top: 0;
+        background-color: $brand-background-color-1;
+    }
+}
+
+/* Logo */
+#logo {
+    grid-area: logotext;
+}
+#logo-container {
+    grid-area: logoimg;
+    @include justify-self(start);
+    @include align-self($centered);
+    img {
+        padding: half($small-padding);
+        @include set-scalable-img(64px);
+        border-radius: 50%;
+        border: $base-border-width * 5 $base-border-style $brand-main-color;
+        background-color: mix($brand-main-color, $theme1-font-2-color, 10%);
+        //float: left;
+    }
+    span {
+        line-height: $base-line-height;
+        @include inline-block-elem;
+        @include text-shadow(0 0 3px $base-font-color);
+        padding: $no-padding half($small-padding);
+        width: $full-width * 0.35;
+        text-align: $centered;
+        font-size: $font-size--1;
+        color: $theme1-font-2-color;
+    }
+}
+
+/* Hamburger menu */
+.hamburger-menu {
+    @include justify-self(end);
+    @include align-self($centered);
+    #hamburger-button {
+        border-radius: $base-border-radius;
+        border: ($base-border-width * 3) $base-border-style $base-border-color;
+        color: mix($brand-main-color, $theme1-font-2-color, 10%);
+        background: $brand-main-color;
+        padding: $small-padding $large-padding;
+        font-size: $font-size-4;
+        font-weight: bold;
+        line-height: 1.25;
+        &:hover {
+            background-color: $theme2-back-color;
+        }
+    }
+    &:hover, &:focus-within {
+        .hamburger-content {
+            width: half($full-width) + 10;
+            border: ($base-border-width * 2) $base-border-style darken($base-border-color, 20%);
+        }
+    }
+}
+
+.hamburger-content {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    right: 0;
+    top: 0;
+    overflow-x: hidden;
+    @include transition(width 0.5s ease-in-out);
+    padding-top: $large-padding;
+    border-radius: $base-border-radius 0 0 $base-border-radius;
+    background-color: $theme2-back-color;
+    ul {
+        @include no-bullets-list;
+        padding: $no-padding;
+        font-size: $font-size-1;
+    }
+    li {
+        &:hover {
+            background-color: $theme1-font-1-color;
+        }
+        &:first-child {
+            a {
+                border-top: $base-border-width $base-border-style $base-border-color;
+            }
+        }
+    }
+    a {
+        color: $theme1-font-2-color;
+        @include block-elem;
+        padding: $no-padding $large-padding;
+        white-space: nowrap;
+        font-weight: bold;
+        line-height: 200%;
+        border-bottom: $base-border-width $base-border-style $base-border-color;
+    }
+
+}
+
+/* Navigation */
+#mobile-nav {
+    grid-area: mobilenav;
+    ul {
+        @include no-bullets-list;
+        background-color: $brand-background-color-2;
+        //background-color: $theme2-back-color;
+        padding: $no-padding;
+        font-size: $font-size-1;
+        li {
+            &:first-child {
+                a {
+                    border-top: $base-border-width $base-border-style $base-border-color;
+                }
+            }
+        }
+        a {
+            @include block-elem;
+            padding: $no-padding $large-padding;
+            color: $theme1-font-2-color;
+            font-weight: bold;
+            line-height: 200%;
+            border-bottom: $base-border-width $base-border-style $base-border-color;
+            &:hover {
+                background-color: $theme1-font-1-color;
+            }
+        }
+        span {
+            float: right;
+            font-size: $font-size-2;
+        }
+    }
+}
+#nav {
+    display: none;
+}
+
+/* Header links */
+#top-links {
+    grid-area: top-links;
+    display: none;
+    width: $full-width;
+    ul {
+        @include no-bullets-list;
+        margin: $no-margin;
+        padding: $no-padding;
+    }
+    li {
+        display: inline;
+    }
+    a {
+        text-align: center;
+        font-size: $font-size--1;
+        float: right;
+        margin: $no-margin half($small-margin);
+        padding: $small-padding, $small-padding;
+        color: $theme1-font-2-color;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+/* Home page */
+
+/* Main Grid */
+#home-main {
+    grid-area: main;
+    @include home-main-mobile-grid;
+}
+
+#video {
+    grid-area: video;
+    @include justify-self($centered);
+    &:first-child {
+        text-align: center;
+    }
+}
+#video-container {
+    padding: $small-padding;
+    background: $brand-background-color-2;
+    border-radius: $base-border-radius;
+}
+
+#home-video {
+    width: $full-width;
+    height: auto;
+    min-width: 300px;
+    @include object-fit(cover);
+    background-color: black;
+    &:focus {
+        @include focus;
+    }
+}
+
+#home-info {
+    grid-area: homeinfo;
+    @include justify-self($centered);
+    background-color: $brand-background-color-2;
+    border-radius: $base-border-radius;
+    height: auto;
+    padding: $small-padding;
+    @include one-by-three-grid;
+    grid-gap: 2rem;
+}
+
+.icon-container {
+    width: $full-width;
+    @include block-elem;
+    position: relative;
+    overflow: hidden;
+    img {
+        @include set-scalable-img(250px);
+        display: block;
+        border-radius: $base-border-radius;
+    }
+    .front {
+        width: $full-width;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        text-align: $centered;
+    }
+    p {
+        font-weight: bold;
+        font-style: italic;
+        color: $theme1-font-2-color;
+        @include center-block;
+        border: $base-border-width $base-border-style $base-border-color;
+        border-radius: $base-border-radius;
+        background-color: $theme2-back-color;
+        width: 40%;
+        padding: half($small-padding) $small-padding;
+    }
+    a.go-to-link {
+        @include inline-block-elem;
+        padding: $small-padding $large-padding;
+        background-color: $theme1-color-1;
+        border: $base-border-width $base-border-style $base-border-color;
+        color: $theme1-font-2-color;
+    }
+}
+#buy {
+    grid-area: buy;
+    p:last-child {
+        text-align: center;
+    }
+}
+
+#sell {
+    grid-area: sell;
+}
+
+#value {
+    grid-area: value;
+}
+
+#book-of-the-month {
+    grid-area: bookofthemonth;
+}
+
+#book-of-the-month-img {
+    float: left;
+    padding: $no-padding $small-padding;
+    img {
+        @include set-scalable-img(86px);
+        @include object-fit(cover);
+        border-radius: $base-border-radius;
+        border: ($base-border-width * 2) $base-border-style $base-border-color;
+    }
+}
+.img-container {
+    float: left;
+    margin: half($small-margin) $small-margin;
+    img {
+        @include set-img-max-width-height(128px, 170px);
+    }
+}
+
+/* Contact us page */
+
+/* Main grid */
+#contact-us-main {
+    grid-area: main;
+    @include contacts-main-mobile-grid;
+}
+
+#contacts-us-text {
+    grid-area: contact-us-text;
+}
+
+#contact-us-details {
+    grid-area: contact-us-details;
+}
+
+#contact-us-form {
+    grid-area: contact-us-form;
+}
+
+#company-details {
+    margin: $small-margin $no-margin;
+    p {
+        padding: $no-padding;
+        margin: $no-margin;
+        a {
+            color: $theme1-back-color;
+        }
+    }
+}
+
+/* Form */
+#contact-form {
+    color: $theme1-font-2-color;
+    background-color: $brand-main-color;
+    @include contacts-form-mobile-grid;
+    border: $base-border-width $base-border-style $base-border-color;
+    padding: $large-padding;
+    font-family: Arial, "sans-serif";
+    label {
+        display: block;
+    }
+    input {
+        &:not([type=checkbox]), select {
+            width: $full-width * 0.9;
+            padding: $small-padding;
+            margin: half($small-margin) $no-margin;
+        }
+        &[type=checkbox] {
+            @include user-select(none);
+        }
+        &[type=radio], &[type=checkbox] {
+            width: $full-width * 0.1;
+            vertical-align: middle;
+            transform: scale(1.5);
+            margin: $small-margin $no-margin $small-margin $no-margin;
+        }
+        &[name="submit"] {
+            width: $full-width;
+            padding: $large-padding;
+            color: $theme1-font-2-color;
+            background-color: $theme1-color-1;
+            border: $base-border-width $base-border-style $base-border-color;
+        }
+        &:invalid {
+            &:focus {
+                outline: 2px solid #F00;
+            }
+        }
+        &:valid {
+            &:focus {
+                &:not([type=radio]) {
+                    &:not([type=checkbox]) {
+                        outline: 2px solid #29ACEE;
+                    }
+                }
+            }
+        }
+    }
+}
+
+fieldset {
+    border: $base-border-width $base-border-style $base-border-color;
+}
+
+/* Form grid */
+#details {
+    grid-area: details;
+}
+
+#interests {
+    grid-area: interests;
+}
+
+#dealer {
+    grid-area: dealer;
+}
+
+#seller {
+    grid-area: seller;
+}
+
+#submit {
+    grid-area: submit;
+}
+
+/* Books page */
+#books-main {
+    grid-area: main;
+    @include books-main-mobile-grid;
+}
+
+#books-description {
+    p {
+        margin: $small-margin $no-margin;
+    }
+    grid-area: books-description;
+}
+
+#books-century-list {
+    grid-area: books-century-list;
+    @include books-century-list-mobile-grid;
+    @include justify-self($centered);
+    h2 {
+        @include justify-self($centered);
+    }
+    img {
+        @include set-scalable-img(225px);
+        display: block;
+        margin: auto;
+        border: $base-border-width $base-border-style $base-border-color;
+    }
+    a {
+        font-size: $font-size-1;
+        color: $theme1-font-2-color;
+    }
+    div {
+        width: $fifth-width * 4;
+        @include justify-self($centered);
+        text-align: $centered;
+        padding: $large-padding $no-padding;
+        border: $base-border-width $base-border-style $base-border-color;
+        border-radius: $base-border-radius;
+        background-color: $theme2-main-color;
+    }
+}
+
+/* 19th century books page */
+#nineteenth-century-main {
+    grid-area: main;
+    @include nineteenth-century-main-mobile-grid;
+}
+
+.price-and-rating {
+    display: inline-block;
+    font-size: $font-size-1;
+    padding: $large-padding $no-padding $no-padding $no-padding;
+    p {
+        margin: $no-margin;
+    }
+    p:nth-child(2) {
+        display: inline;
+    }
+}
+.rating {
+    display: inline;
+    border: $base-border-width $base-border-style $base-border-color;
+    border-radius: $base-border-radius;
+    background: $brand-main-color;
+    > span {
+        color: $rating-color;
+    }
+}
+
+#nineteenth-century-intro {
+    grid-area: nineteenth-century-intro;
+}
+
+#item1 {
+    grid-area: item1;
+}
+
+#item2 {
+    grid-area: item2;
+}
+
+#item3 {
+    grid-area: item3;
+}
+
+#item4 {
+    grid-area: item4;
+}
+
+#item5 {
+    grid-area: item5;
+}
+
+#item6 {
+    grid-area: item6;
+}
+
+/* Delivery Page */
+#delivery-table-desktop {
+    display: none;
+}
+
+#delivery-intro {
+  grid-area: intro;
+}
+
+#delivery-rates {
+  grid-area: delivery-table;
+  @include justify-self($centered);
+
+}
+
+#delivery-info {
+  grid-area: info;
+}
+
+#delivery-main {
+    grid-area: main;
+    @include delivery-main-mobile-grid;
+}
+
+.delivery-table {
+    font-family: Arial, "sans-serif";
+    border-collapse: collapse;
+    text-align: left;
+    th, td {
+        padding: $small-padding $large-padding;
+        border: $base-border-width $base-border-style $theme2-main-color;
+    }
+    td {
+        background: $theme2-font-1-color;
+    }
+    td[rowspan="2"] {
+        background: $theme1-front-color;
+    }
+    th{
+        background: $theme1-front-color;
+    }
+    th[scope="col"] {
+        background: lighten($theme2-back-color, 25%);
+    }
+    th[colspan="2"] {
+        text-align: $centered;
+    }
+    th[scope="row"] {
+        text-align: end;
+    }
+    &:focus {
+        @include focus;
+    }
+    caption {
+        border-left: $base-border-width $base-border-style $theme2-main-color;
+        border-top: $base-border-width $base-border-style $theme2-main-color;
+        border-right: $base-border-width $base-border-style $theme2-main-color;
+        background: $theme1-front-color;
+    }
+}
+
+#col1, #col2, #col3, #col4, #col5, #col6 {
+    background: lighten($theme2-back-color, 25%);
+}
+
+#uk1, #uk2, #uk3, #eu1, #eu2, #eu3, #na1, #na2, #na3, #rw1, #rw2, #rw3 {
+    text-align: end;
+}
+
+/* Footer */
+#foot {
+    grid-area: foot;
+    background-color: $theme2-back-color-rgba;
+    border-top: $base-border-width $base-border-style $theme1-color-1;
+    text-align: $centered;
+    font-size: $font-size--1;
+    ul {
+        margin: $no-margin;
+        padding: $no-padding;
+        @include no-bullets-list;
+        li {
+            padding: $small-padding $no-padding;
+        }
+        a {
+            color: $theme1-color-1;
+            line-height: 200%;
+            border-bottom: $base-border-width $base-border-style $theme1-color-1;
+        }
+    }
+}
+
+/* Break points */
+
+/* Tablet view */
+@media (min-width: 768px) {
+    header {
+        @include header-768px-grid;
+    }
+    h1 {
+        @include block-elem;
+    }
+    #home-main {
+        grid-gap: 4rem;
+    }
+    #contact-form {
+        input[type=radio], input[type=checkbox] {
+            margin: half($small-margin) $no-margin half($small-margin) $no-margin;
+        }
+    }
+    #video {
+        min-width: $fifth-width * 3;
+    }
+}
+
+/* Desktop view */
+@media (min-width: 1025px) {
+    #page-container {
+        @include page-container-desktop-grid;
+    }
+
+    header {
+        padding: $large-padding $small-padding $large-padding;
+        @include header-desktop-grid;
+    }
+
+    #top-links {
+        @include block-elem;
+    }
+
+    #mobile-nav {
+        display: none;
+    }
+
+    #nav {
+        @include block-elem;
+        grid-area: nav;
+        margin: -$large-margin $no-margin $large-margin;
+        background-color: $brand-main-color;
+        //background-color: $theme2-back-color;
+        overflow: auto;
+        ul {
+            @include no-bullets-list;
+            margin: $no-margin;
+            padding: $no-padding;
+        }
+        li {
+            display: inline;
+        }
+        a {
+            width: $fifth-width;
+            text-align: $centered;
+            font-size: $font-size-1;
+            float: left;
+            color: $theme1-font-2-color;
+            padding: $small-padding $large-padding;
+            &:hover, &:focus {
+                background-color: $theme2-back-color;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .hamburger-menu {
+        display: none;
+    }
+
+    main {
+        padding: $no-padding $large-padding * 2;
+    }
+
+    /* Home page */
+    #home-main {
+        @include home-main-desktop-grid;
+        grid-gap: 4rem;
+    }
+
+    .first-look {
+        .front {
+            opacity: 0;
+            @include transition(opacity 0.5s ease);
+        }
+        img {
+            @include transition-for-transform(transform 0.3s linear);
+        }
+        p {
+            @include transform(translateY(-100px));
+            opacity: 0;
+            @include transition(all 0.4s linear);
+        }
+        a.go-to-link {
+            opacity: 0;
+            @include transition(opacity 0.3s ease);
+        }
+        &:hover {
+            @include show-front;
+        }
+        &:focus {
+            @include show-front;
+        }
+        &:focus-within {
+            @include show-front;
+        }
+    }
+
+    #home-info {
+        @include three-by-one-grid;
+    }
+
+    /* Contact us page */
+    #contact-us-main {
+        @include contacts-main-desktop-grid;
+    }
+
+    #contact-form {
+        @include contacts-form-desktop-grid;
+    }
+
+    /* Books page */
+    #books-main {
+        @include books-main-desktop-grid;
+    }
+
+    #books-century-list {
+        width: $full-width;
+        @include books-century-list-desktop-grid;
+        h2 {
+            margin: $no-margin $no-margin $no-margin $small-margin / 2;
+            @include justify-self(start);
+            grid-column: 1 / 4;
+            grid-row: 1 / 2;
+        }
+        div {
+            @include justify-self(start);
+            width: calc(100% - 5vw);
+            padding: $large-padding $no-padding;
+        }
+    }
+
+    #author-1 {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+    }
+
+    #author-2 {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+    }
+
+    #author-3 {
+        grid-column: 3 / 4;
+        grid-row: 2 / 3;
+    }
+
+    /* 19th century page */
+    #nineteenth-century-main {
+        @include nineteenth-century-main-desktop-grid;
+    }
+
+    /* Delivery page */
+    #delivery-table-mobile {
+        display: none;
+    }
+
+    #delivery-table-desktop {
+        display: block;
+    }
+
+    #delivery-rates {
+        @include justify-self(start);
+    }
+
+    #delivery-main {
+      @include delivery-main-desktop-grid;
+    }
+}

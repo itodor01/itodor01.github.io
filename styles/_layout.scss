@@ -1,0 +1,271 @@
+/* Layout */
+@import "transform";
+$large-padding: 1rem;
+$small-padding: 0.5rem;
+$no-padding: 0;
+$large-margin: 2rem;
+$small-margin: 1rem;
+$no-margin: 0;
+$base-grid-gap: 1rem;
+$centered: center;
+$base-border-width: 1px;
+$base-border-style: solid;
+$base-border-radius: 10px;
+$full-width: 100%;
+$fifth-width: 20%;
+$max-para-width: 50vw;
+
+@function half($unit) {
+  @return $unit / 2;
+}
+
+@mixin inline-block-elem {
+  display: inline-block;
+}
+
+@mixin block-elem {
+  display: block;
+}
+
+@mixin center-block {
+  margin: {
+    left: auto;
+    right: auto;
+  }
+}
+
+@mixin set-scalable-img($max-width) {
+  width: $full-width;
+  height: auto;
+  max-width: $max-width;
+}
+
+@mixin set-img-max-width-height($max-width, $max-height){
+  width: $full-width;
+  height: auto;
+  max-width: $max-width;
+  max-height: $max-height;
+  border: $base-border-width * 2 $base-border-style lighten(#292f38, 60%)
+}
+/* Grids */
+
+// Page container grids
+@mixin page-container-mobile-grid {
+  display: grid;
+  grid-template-columns: minmax(320px, 1fr);
+  grid-template-areas:
+    "top"
+    "main"
+    "mobilenav"
+    "foot";
+  grid-gap: $base-grid-gap * 2;
+}
+
+@mixin page-container-desktop-grid {
+  grid-template-areas:
+    "top"
+    "nav"
+    "main"
+    "foot";
+}
+
+//Header grids
+@mixin header-mobile-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+  "logoimg logotext";
+}
+
+@mixin header-768px-grid {
+  grid-template-columns: 0.5fr 1fr 0.5fr;
+  grid-template-areas:
+  "logoimg logotext";
+}
+
+@mixin header-desktop-grid {
+  grid-template-columns: 0.2fr 1fr;
+  grid-template-areas:
+  ". top-links"
+  "logoimg logotext";
+}
+
+// Home page grids
+@mixin home-main-mobile-grid {
+  display: grid;
+  grid-template-columns: minmax(250px, 1fr);
+  grid-template-areas:
+    "video"
+    "homeinfo"
+    "buy"
+    "sell"
+    "value"
+    "bookofthemonth";
+  grid-gap: $base-grid-gap * 2;
+}
+
+@mixin home-main-desktop-grid {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+  "video video video"
+  "homeinfo homeinfo homeinfo"
+  "buy buy ."
+  "sell sell ."
+  "value value ."
+  "bookofthemonth bookofthemonth .";
+}
+
+@mixin one-by-three-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 1fr);
+}
+
+@mixin three-by-one-grid {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+}
+
+// Contacts page grids
+@mixin contacts-main-mobile-grid {
+  display: grid;
+  grid-template-columns: minmax(250px, 1fr);
+  grid-template-rows: repeat(3, auto);
+  grid-template-areas:
+  "contact-us-text"
+  "contact-us-details"
+  "contact-us-form";
+}
+
+@mixin contacts-form-mobile-grid {
+  display: grid;
+  grid-template-columns: minmax(250px, 1fr);
+  grid-template-rows: repeat(5, auto);
+  grid-template-areas:
+    "details"
+    "interests"
+    "dealer"
+    "seller"
+    "submit";
+  grid-gap: $base-grid-gap $base-grid-gap / 2;
+}
+
+@mixin contacts-main-desktop-grid {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+  "contact-us-text contact-us-text ."
+  "contact-us-details contact-us-details ."
+  "contact-us-form contact-us-form contact-us-form"
+  ;
+}
+
+@mixin contacts-form-desktop-grid {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(4, auto);
+  grid-template-areas:
+  "details interests"
+  "details dealer"
+  "details seller"
+  "submit submit";
+}
+
+// Books page grids
+@mixin books-main-mobile-grid {
+  display: grid;
+  grid-template-columns: minmax(250px, 1fr);
+  grid-template-rows: repeat(2, auto);
+  grid-template-areas:
+  "books-description"
+  "books-century-list";
+  grid-gap: $base-grid-gap * 2;
+}
+
+@mixin books-main-desktop-grid {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+  "books-description books-description ."
+  "books-century-list books-century-list books-century-list";
+}
+
+@mixin books-century-list-mobile-grid {
+  display: grid;
+  grid-template-columns: minmax(250px, 1fr);
+  grid-template-rows: repeat(4, auto);
+  grid-gap: $base-grid-gap * 2;
+}
+
+@mixin books-century-list-desktop-grid {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, auto);
+}
+
+// 19th century page grids
+@mixin nineteenth-century-main-mobile-grid {
+  display: grid;
+  grid-template-columns: minmax(250px, 1fr);
+  grid-template-rows: repeat(7, auto);
+  grid-gap: $base-grid-gap * 2;
+  grid-template-areas:
+  "nineteenth-century-intro"
+  "item1"
+  "item2"
+  "item3"
+  "item4"
+  "item5"
+  "item6";
+}
+
+@mixin nineteenth-century-main-desktop-grid {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+  "nineteenth-century-intro nineteenth-century-intro ."
+  "item1 item1 ."
+  "item2 item2 ."
+  "item3 item3 ."
+  "item4 item4 ."
+  "item5 item5 ."
+  "item6 item6 .";
+}
+
+/* Delivery page grids */
+@mixin delivery-main-mobile-grid {
+  display: grid;
+  grid-template-columns: minmax(250px, 1fr);
+  grid-template-rows: repeat(3, auto);
+  grid-gap: $base-grid-gap * 2;
+  grid-template-areas:
+  "intro"
+  "delivery-table"
+  "info";
+}
+
+@mixin delivery-main-desktop-grid {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+  "intro intro ."
+  "delivery-table delivery-table delivery-table"
+  "info info .";
+}
+
+/* Mixins */
+@mixin object-fit($fit) {
+  -o-object-fit: $fit;
+  object-fit: $fit;
+}
+
+@mixin show-front {
+  .front {
+    opacity: 1;
+  }
+  img {
+    @include transform(scale(1.2, 1.2));
+  }
+  p {
+    opacity: 1;
+    @include transform(translateY(0px));
+  }
+  a.go-to-link {
+    opacity: 1;
+  }
+}

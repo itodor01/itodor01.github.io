@@ -1,0 +1,6 @@
+
+@mixin transform($transform-property) {
+  -webkit-transform: $transform-property;
+  -ms-transform: $transform-property;
+  transform: $transform-property;
+}

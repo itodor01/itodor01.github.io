@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../../styles/normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/styles.css">
+    <title>Emblem Contact Us</title>
+</head>
+<body>
+    <div id="page-container">
+        <header id="top">
+            <div id="top-links">
+                <ul>
+                    <li>
+                        <a href="#">Login</a>
+                        <a href="#">Accessibility</a>
+                        <a href="contact_us.html">Contact us</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="logo-container">
+                <a href="../../index.html"><img src="../../images/logo/emblem_logo_64.png" alt="logo"></a>
+                <span class="logo-text">Rare, Collectible Books</span>
+            </div>
+            <h1 id="logo">Emblem</h1>
+            <div class="hamburger-menu" tabindex="0">
+                <a id="hamburger-button" href="#">&#9776;</a>
+                <div class="hamburger-content" tabindex="0">
+                    <ul>
+                        <li><a href="#mobile-nav" tabindex="0">Menu</a></li>
+                        <li><a href="contact_us.html" tabindex="0">Contact us</a></li>
+                        <li><a href="#" tabindex="0">Accessibility</a></li>
+                        <li><a href="#" tabindex="0">Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <nav id="nav">
+            <ul>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../public/books/books.html">Books</a></li>
+                <li><a href="../../public/delivery/delivery.html">Delivery</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Investment</a></li>
+            </ul>
+        </nav>
+        <main id="contact-us-main">
+            <article id="contacts-us-text">
+                <h2>Contact us</h2>
+                <div class="text-container" id="contacts-article">
+                    <p>Please feel free to contact is if you are looking to buy a book not listed in our collection,
+                        or you are looking to sell a book, have a book valued or have a book repaired.
+                        We try to answer all queries within 24 hours of receipt.
+                    </p>
+                </div>
+            </article>
+            <article id="contact-us-details">
+                <div class="text-container" id="company-details">
+                    <p>Email: <a class="email-link" href="mailto: sales@emblem-rare-books.com">sales@emblem-rare-books.com</a></p>
+                    <p>Phone: 0208 555 6789</p>
+                </div>
+            </article>
+            <section id="contact-us-form">
+                <form method="post" action="#" id="contact-form">
+                    <fieldset id="details">
+                        <legend>Your Details</legend>
+                        <div class="control-group">
+                            <label for="title-choice">Title: </label>
+                            <select name="title" id="title-choice" required>
+                                <option selected value="none">Please select</option>
+                                <option value="mr">Mr.</option>
+                                <option value="mrs">Mrs.</option>
+                                <option value="ms">Ms.</option>
+                                <option value="miss">Miss.</option>
+                            </select>
+                        </div>
+                        <div class="control-group">
+                            <label for="name">Name * (req.)</label>
+                            <input checked name="fname" type="text" id="name" placeholder="e.g. John" required>
+                        </div>
+                        <div class="control-group">
+                            <label for="surname">Surname * (req.)</label>
+                            <input checked name="sname" type="text" id="surname" placeholder="e.g. Doe" required>
+                        </div>
+                        <div class="control-group">
+                            <label for="email">Email * (req.)</label>
+                            <input type="email" name="email" id="email" placeholder="e.g. your_email_address@gmail.com" required>
+                        </div>
+                    </fieldset>
+                    <fieldset id="interests">
+                        <legend>Interests</legend>
+                        <div class="control-group">
+                            <label for="opt1"><input type="checkbox" name="interest" id="opt1" value="1">20th Century Books</label>
+                        </div>
+                        <div class="control-group">
+                            <label for="opt2"><input type="checkbox" name="interest" id="opt2" value="2">19th Century Books</label>
+                        </div>
+                        <div class="control-group">
+                            <label for="opt3"><input type="checkbox" name="interest" id="opt3" value="3">18th Century Books</label>
+                        </div>
+                        <div class="control-group">
+                            <label for="opt4"><input type="checkbox" name="interest" id="opt4" value="4">Rare Books</label>
+                        </div>
+                    </fieldset>
+                    <fieldset id="dealer">
+                        <legend>Are you a Dealer?</legend>
+                        <label for="yes"><input type="radio" name="dealer" id="yes" value="yes" checked>Yes</label>
+                        <label for="no"><input type="radio" name="dealer" id="no" value="no">No</label>
+                    </fieldset>
+                    <fieldset id="seller">
+                        <legend>Are you, selling or buying?</legend>
+                        <label for="selling"><input type="radio" id="selling" name="business" checked>Selling</label>
+                        <label for="buying"><input type="radio" id="buying" name="business">Buying</label>
+                    </fieldset>
+                    <input type="submit" id="submit" name="submit" value="Send">
+                </form>
+            </section>
+        </main>
+        <nav id="mobile-nav">
+            <ul>
+                <li><a href="../../index.html"><span class="arrow">&raquo;</span>Home</a></li>
+                <li><a href="../../public/books/books.html"><span class="arrow">&raquo;</span>Books</a></li>
+                <li><a href="../../public/delivery/delivery.html"><span class="arrow">&raquo;</span>Delivery</a></li>
+                <li><a href="#"><span class="arrow">&raquo;</span>About us</a></li>
+                <li><a href="#"><span class="arrow">&raquo;</span>Books as an Investment</a></li>
+                <li class="top"><a href="#top"><span class="arrow">&raquo;</span>Back to top of page</a></li>
+            </ul>
+        </nav>
+        <footer id="foot">
+            <ul>
+                <li><a href="#">Privacy</a></li>
+                <li><a href="#">Terms and Conditions</a></li>
+                <li><a href="#">Returns</a></li>
+            </ul>
+        </footer>
+    </div>
+</body>
+</html>
